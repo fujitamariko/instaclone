@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th>ID</th>
+      <th>Name</th>
       <th>Title</th>
       <th>Content</th>
       <th>Image</th>
@@ -17,6 +18,7 @@
     <% @pictures.each do |picture| %>
       <tr>
         <td><%= picture.user_id %></td>
+        <td><%= picture.user.name %></td>
         <td><%= picture.title %></td>
         <td><%= picture.content %></td>
         <td><%= image_tag picture.image.url %></td>
