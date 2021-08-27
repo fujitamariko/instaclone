@@ -3,9 +3,11 @@
   <%= form.hidden_field :user_id %>
   <%= form.hidden_field :title %>
   <%= form.hidden_field :content %>
+  <%= form.hidden_field :image_cache %>
   <p>ID:<%= @picture.user_id %></p>
   <p>Title:<%= @picture.title %></p>
   <p>Content:<%= @picture.content %></p>
+  <p>Image:<%= image_tag @picture.image.url %></p>
   <%= form.submit  "OK" %>
   <%= form.submit "back", name: 'back' %>
 <% end %>
