@@ -24,7 +24,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to pictures_path
+      redirect_to pictures_path, notice: "User was successfully saved."
     else
       render :new
     end

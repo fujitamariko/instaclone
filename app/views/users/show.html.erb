@@ -4,5 +4,8 @@
   <strong>Image:</strong>
   <%= image_tag @user.image.url %>
 </p>
-<%= link_to '新しく投稿する', new_picture_path %>
-<%= link_to '一覧', pictures_path %>
+<%= link_to 'Post new picture', new_picture_path %>
+<br>
+<%= link_to 'Favorites list ', favorites_path(@user) %>
+<br>
+<%= link_to 'Picture list', pictures_path %>
