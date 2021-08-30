@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   skip_before_action :login_required, only: [:new, :create, :update, :destroy ]
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :own_user, only: [:edit, :update, :destroy]
 
   # GET /users or /users.json
   def index
@@ -61,5 +63,11 @@ class UsersController < ApplicationController
     # Only allow a list of trusted parameters through.
     def user_params
       params.require(:user).permit(:name, :email, :password, :password_confirmation, :image, :image_cache)
+    end
+
+    def own_user
+      if current_user.id != @user.id
+        redirect_to user_path
+      end
     end
 end
