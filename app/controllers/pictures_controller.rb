@@ -31,6 +31,7 @@ class PicturesController < ApplicationController
       render :new
     else
       if @picture.save
+        PictureMailer.post_mail(@picture).deliver
         redirect_to new_picture_path, notice: "ブログを作成しました！"
       else
         render :new
